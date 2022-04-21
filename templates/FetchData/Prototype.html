@@ -1,0 +1,31 @@
+{% extends 'FetchData/base.html' %}
+
+{% block header %}
+    <h2 class="text-center alert alert-danger">Choose Your Prototype CRUD Project</h2>
+{% endblock header %}
+    
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-warning">
+                <div class="container">
+                  <h1 class="display-4">Login Patient</h1>
+                  <p class="lead">Click to Apply CRUD Functionality with Database Sensors</p>
+                  <a class="btn btn-warning" href={% url 'AddandShow' %}>Patient</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="alert alert-info">
+                <div class="container">
+                  <h1 class="display-4">Login Customer</h1>
+                  <p class="lead">Click to Apply CRUD Functionality Customer</p>
+                  <a class="btn btn-info" href={% url 'AddandShowCustomer' %}>Customer</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% extends 'FetchData/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="form-group">
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-md-3">
+                    <label for="" class="" id="">Enter Any API JSON URL:</label>
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="form-control" id="thingspeak_url" value="https://api.thingspeak.com/channels/1633090/feeds.json?api_key=C15DPT91QNH37GY6&results=2">
+                </div>
+                <div class="col-md-2">
+                    <input type="button" id="open_url" class="btn btn-warning" value="Open URL">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-sm-4">
+                    <label for="" class="" id="">Time Interval
+                        <small>(in seconds)</small>
+                    :</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" value="10" id="id_interval" data-url="{% url 'getData' Name Email %}">
+                </div>
+                <div class="col-sm-4">
+                        <input type="button" id="btn_show" class="btn btn-danger" value="Start Vitals">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <h4 class="text-center alert alert-info">Login Patient Details</h4>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-success" value="Sign-in">
+                <a href="{% url 'AddandShow' %}" class="btn btn-info">Back to Home</a>
+            </form>
+        </div>
+        <div class="col-sm-9">
+            <h4 class="text-center alert alert-info">Vital Measurements</h4>
+            <table class="table table-hover" id="sensor_content">
+                <thead class="container text-center">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date Time</th>
+                        <th>Temp (°C)</th>
+                        <th>Humidity (%)</th>
+                        <th>Body Temp (°C)</th>
+                    </tr>
+                </thead>
+                <tbody id="sensor_content_body">
+                    
+                </tbody>
+
+            </table>
+            <div class="col-sm-7 col-sm-offset-5">
+                <a href="{% url 'CheckVitals' Name Email%}" class="btn btn-warning">Save</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
